@@ -94,9 +94,5 @@ const  main = async ()=> {
 };
 
 window.addEventListener(("DOMContentLoaded"),()=>{    
-<<<<<<< HEAD
-    main();
-=======
      main();
->>>>>>> 61fb5e263898136aeb0541278b97f4881d307af5
 });
