@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  
+  <title>IP Address Tracker</title>
+
+ </head>
+<body>
+  <header id="header">
+    <h1>IP ADRESS TACKER</h1>
+    <form id="search">
+      <input type="text" name="ipinput" id="ip-input" placeholder="IP ADRESS">
+      <button id="search-btn"><i class="fas fa-search-location"></i></button>
+    </form>
+  
+
+  </header>
+  <div id="ip-info-container">
+    <div id="ip-adress-container">
+      <h3>IP ADRESS</h3>
+      <div id="ip-adress">127.0.0.1</div>
+    </div>
+    <div id="country-container">
+      <h4>COUNTRY</h4>
+      <div id="country">Russia</div>
+    </div>
+    <div id="city-container">
+      <h4>CITY</h4>
+      <div id="city">MOSCOW</div>
+    </div>
+    <div id="zip-container">
+      <h4>ZIP</h4>
+      <div id="zip">845043</div>
+    </div>
+  </div>
+
+  <div id="map-container">
+    <div id="mapid"></div>
+  </div>
+
+
+  <script src="./app.js"></script>
+</body>
+</html>
