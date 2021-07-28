@@ -94,5 +94,5 @@ const  main = async ()=> {
 };
 
 window.addEventListener(("DOMContentLoaded"),()=>{    
-    // main();
+    main();
 });
