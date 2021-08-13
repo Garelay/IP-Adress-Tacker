@@ -5,16 +5,15 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: '${{secrets.street_map_api}}'
+        accessToken: 'pk.eyJ1IjoiZ2FyZWxheSIsImEiOiJja3JhMHZ5ZTUwbzduMm5xeGU0Nm9uYm9tIn0.ciQhzhfFvPp2_Nl8Hv_m6A'
         }).addTo(mymap);
 const ipApiAccessKey = "f26b0397f874a57e289cc7e521666cd9";
 
-// getting user IP
+// getting user IP (different api call from getSetIpInfo)
 async function getUserIp(){
         try {
             const response = await fetch(`http://api.ipstack.com/check?access_key=${ipApiAccessKey}`);        
             let info = await response.json();
-            console.log(info);
             return info;           
         } catch (err) {
             console.log(err);
@@ -34,8 +33,7 @@ async function getSetIpInfo(ip){
 }
 
 //user input handling
-const form = document.getElementById("search");
-const userInput = document.getElementById("ip-input");
+
 function validateUserInput(input){
     
     const ipv4 = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
@@ -48,18 +46,18 @@ function validateUserInput(input){
     }
     
 }
-// joiner function
-// (used to sync getting user IP info with building a map based on that info)
-async function joiner () {
-    render(await getSetIpInfo(userInput.value));
-}
+
 //form submissin event
 function handSubmission() {
+    const userInput = document.getElementById("ip-input");
+    const form = document.getElementById("search");
     form.addEventListener("submit", e =>{
         e.preventDefault();
         if (validateUserInput(userInput.value)){ 
-            joiner();
-            console.log(userInput.value);     
+            (async ()=>{
+                render(await getSetIpInfo(userInput.value));
+                console.log(userInput.value);
+            })(); 
         } else {
             openModal();
         }
