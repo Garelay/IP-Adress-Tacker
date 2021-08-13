@@ -76,9 +76,9 @@ function openModal(){
 async function render(ipInfo){
     //html elements displaying the ip-adress info
     const   ipElement = document.getElementById("ip-adress"),
-    country = document.getElementById("country"),
-    city = document.getElementById("city"),
-    zip = document.getElementById("zip");
+            country = document.getElementById("country"),
+            city = document.getElementById("city"),
+            zip = document.getElementById("zip");
 
     ipElement.innerHTML = ipInfo.ip;
     city.innerHTML = ipInfo.city;
